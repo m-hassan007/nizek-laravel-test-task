@@ -1,0 +1,21 @@
+{
+    "name": "Stock",
+    "alias": "stock",
+    "description": "Stock price management module for handling Excel uploads and price analysis",
+    "keywords": [
+        "stock",
+        "price",
+        "excel",
+        "analysis",
+        "report"
+    ],
+    "priority": 0,
+    "providers": [
+        "Modules\\Stock\\Providers\\StockServiceProvider",
+        "Modules\\Stock\\Providers\\EventServiceProvider",
+        "Modules\\Stock\\Providers\\RouteServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

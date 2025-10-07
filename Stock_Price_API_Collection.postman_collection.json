@@ -1,0 +1,378 @@
+{
+	"info": {
+		"_postman_id": "stock-price-api-collection",
+		"name": "Stock Price Management API",
+		"description": "API collection for stock price management system with Excel upload and analysis capabilities",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Available Companies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/stock/companies",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"stock",
+						"companies"
+					]
+				},
+				"description": "Retrieve all available companies with stock data"
+			},
+			"response": [
+				{
+					"name": "Success Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/stock/companies",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"stock",
+								"companies"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"company_symbol\": \"AAPL\",\n            \"company_name\": \"Apple Inc.\"\n        },\n        {\n            \"company_symbol\": \"GOOGL\",\n            \"company_name\": \"Alphabet Inc.\"\n        }\n    ],\n    \"message\": \"Companies retrieved successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Latest Stock Price",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/stock/latest-price?symbol=AAPL",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"stock",
+						"latest-price"
+					],
+					"query": [
+						{
+							"key": "symbol",
+							"value": "AAPL",
+							"description": "Company stock symbol"
+						}
+					]
+				},
+				"description": "Get the latest stock price for a specific company"
+			},
+			"response": [
+				{
+					"name": "Success Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/stock/latest-price?symbol=AAPL",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"stock",
+								"latest-price"
+							],
+							"query": [
+								{
+									"key": "symbol",
+									"value": "AAPL"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"company_symbol\": \"AAPL\",\n        \"company_name\": \"Apple Inc.\",\n        \"date\": \"2024-01-15\",\n        \"open_price\": \"150.00\",\n        \"high_price\": \"155.00\",\n        \"low_price\": \"148.00\",\n        \"close_price\": \"152.50\",\n        \"adjusted_close\": \"152.50\",\n        \"volume\": 50000000\n    },\n    \"message\": \"Latest stock price retrieved successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Custom Date Range Change",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/stock/custom-date-change?symbol=AAPL&start_date=2024-01-01&end_date=2024-01-15",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"stock",
+						"custom-date-change"
+					],
+					"query": [
+						{
+							"key": "symbol",
+							"value": "AAPL",
+							"description": "Company stock symbol"
+						},
+						{
+							"key": "start_date",
+							"value": "2024-01-01",
+							"description": "Start date (YYYY-MM-DD)"
+						},
+						{
+							"key": "end_date",
+							"value": "2024-01-15",
+							"description": "End date (YYYY-MM-DD)"
+						}
+					]
+				},
+				"description": "Get stock price change between two custom dates"
+			},
+			"response": [
+				{
+					"name": "Success Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/stock/custom-date-change?symbol=AAPL&start_date=2024-01-01&end_date=2024-01-15",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"stock",
+								"custom-date-change"
+							],
+							"query": [
+								{
+									"key": "symbol",
+									"value": "AAPL"
+								},
+								{
+									"key": "start_date",
+									"value": "2024-01-01"
+								},
+								{
+									"key": "end_date",
+									"value": "2024-01-15"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"start_price\": \"145.50\",\n        \"end_price\": \"152.50\",\n        \"change\": \"7.00\",\n        \"percentage\": \"4.81\",\n        \"start_date\": \"2024-01-01\",\n        \"end_date\": \"2024-01-15\"\n    },\n    \"message\": \"Stock price analysis retrieved successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Period Change - 1D",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/stock/period-change?symbol=AAPL&period=1D",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"stock",
+						"period-change"
+					],
+					"query": [
+						{
+							"key": "symbol",
+							"value": "AAPL",
+							"description": "Company stock symbol"
+						},
+						{
+							"key": "period",
+							"value": "1D",
+							"description": "Period: 1D, 1M, 3M, 6M, YTD, 1Y, 3Y, 5Y, 10Y, MAX"
+						}
+					]
+				},
+				"description": "Get stock price change for 1 day period"
+			},
+			"response": [
+				{
+					"name": "Success Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/stock/period-change?symbol=AAPL&period=1D",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"stock",
+								"period-change"
+							],
+							"query": [
+								{
+									"key": "symbol",
+									"value": "AAPL"
+								},
+								{
+									"key": "period",
+									"value": "1D"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"start_price\": \"150.00\",\n        \"end_price\": \"152.50\",\n        \"change\": \"2.50\",\n        \"percentage\": \"1.67\",\n        \"start_date\": \"2024-01-14\",\n        \"end_date\": \"2024-01-15\"\n    },\n    \"period\": \"1D\",\n    \"message\": \"Stock price analysis retrieved successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Period Change - 1Y",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/stock/period-change?symbol=AAPL&period=1Y",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"stock",
+						"period-change"
+					],
+					"query": [
+						{
+							"key": "symbol",
+							"value": "AAPL",
+							"description": "Company stock symbol"
+						},
+						{
+							"key": "period",
+							"value": "1Y",
+							"description": "Period: 1D, 1M, 3M, 6M, YTD, 1Y, 3Y, 5Y, 10Y, MAX"
+						}
+					]
+				},
+				"description": "Get stock price change for 1 year period"
+			}
+		},
+		{
+			"name": "Get All Periods Data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/stock/all-periods?symbol=AAPL",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"stock",
+						"all-periods"
+					],
+					"query": [
+						{
+							"key": "symbol",
+							"value": "AAPL",
+							"description": "Company stock symbol"
+						}
+					]
+				},
+				"description": "Get stock price changes for all available periods"
+			},
+			"response": [
+				{
+					"name": "Success Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/stock/all-periods?symbol=AAPL",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"stock",
+								"all-periods"
+							],
+							"query": [
+								{
+									"key": "symbol",
+									"value": "AAPL"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"1D\": {\n            \"start_price\": \"150.00\",\n            \"end_price\": \"152.50\",\n            \"change\": \"2.50\",\n            \"percentage\": \"1.67\",\n            \"start_date\": \"2024-01-14\",\n            \"end_date\": \"2024-01-15\"\n        },\n        \"1M\": {\n            \"start_price\": \"145.00\",\n            \"end_price\": \"152.50\",\n            \"change\": \"7.50\",\n            \"percentage\": \"5.17\",\n            \"start_date\": \"2023-12-15\",\n            \"end_date\": \"2024-01-15\"\n        },\n        \"1Y\": {\n            \"start_price\": \"130.00\",\n            \"end_price\": \"152.50\",\n            \"change\": \"22.50\",\n            \"percentage\": \"17.31\",\n            \"start_date\": \"2023-01-15\",\n            \"end_date\": \"2024-01-15\"\n        }\n    },\n    \"message\": \"All period data retrieved successfully\"\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000",
+			"type": "string",
+			"description": "Base URL for the Laravel application"
+		}
+	]
+}

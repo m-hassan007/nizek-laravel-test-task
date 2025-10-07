@@ -1,0 +1,24 @@
+{
+    "name": "nwidart/stock",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\Stock\\Providers\\StockServiceProvider",
+                "Modules\\Stock\\Providers\\EventServiceProvider",
+                "Modules\\Stock\\Providers\\RouteServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Stock\\": ""
+        }
+    }
+}
